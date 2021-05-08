@@ -1,7 +1,9 @@
 image:
   file: .gitpod.Dockerfile
+
 tasks:
   - command: dart main.dart
+
 vscode:
   extensions:
     - Dart-Code.dart-code@3.8.1:+5Rq24Mq46eJa5w39WY0bA==
