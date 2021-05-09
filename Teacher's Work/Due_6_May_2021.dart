@@ -82,7 +82,7 @@ class Task2 {
      * This class contains the function which 
      * I wrote to complete task 2
      */
-    static double Average_Reaction({required List<double> reaction, required List<int> age}){
+    static double Average_Reaction({required List<double> reaction, required List<int> age, required List<String> school}){
         /**
          * Finds the average reaction time of a specific age group
          * @param reaction: An Array contaning all the reaction times
@@ -93,16 +93,21 @@ class Task2 {
         print("\nPlease enter an age: ");
         int chosen_age = int.parse(stdin.readLineSync() as String);
 
+        print("Please enter the name of the school: ");
+        String school_name = stdin.readLineSync() as String;
+
         double counter = 0;
         int total = 0;
 
         for (var i = 0; i < reaction.length; i++) {
-            if (age[i] == chosen_age){
+            if (age[i] == chosen_age && school[i] == school_name){
                 counter = counter + reaction[i];
                 total++;
             }
         }
-        return counter/total;
+        double avg = counter/total;
+        print("Average reaction for $chosen_age year olds from $school_name: $avg");
+        return avg;
     }
     static void run(
         List <int> age, 
@@ -113,7 +118,7 @@ class Task2 {
          * Starts Task 2
          */
         // find the Average Reaction
-        Average_Reaction(reaction: reaction_times, age: age);
+        Average_Reaction(reaction: reaction_times, age: age, school:school);
     }
 }
 
