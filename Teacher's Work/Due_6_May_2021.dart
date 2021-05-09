@@ -1,6 +1,10 @@
 import 'dart:io';
 
 class Task1 {
+    /**
+     * This class contains the functions which
+     * I wrote to complete task 1
+     */
     static int take_age(){
         /**
         * Returns the age of the Student
@@ -54,6 +58,33 @@ class Task1 {
     }
 }
 
+class Task2 {
+    /**
+     * This class contains the function which 
+     * I wrote to complete task 2
+     */
+    static double Average_Reaction(List<double> reaction, List<int> age, int chosen_age){
+        /**
+         * Finds the average reaction time of a specific age group
+         * @param reaction: An Array contaning all the reaction times
+         * @param age: An array contaning the age of the student
+         * @param chosen_age: The age group chosen by the user
+         *
+         * Return Type: Double 
+         */
+        double counter = 0;
+        int total = 0;
+
+        for (var i = 0; i < reaction.length; i++) {
+            if (age[i] == chosen_age){
+                counter = counter + reaction[i];
+                total++;
+            }
+        }
+        return counter/total;
+    }
+}
+
 void main(){
     // Make an empty array contaning 5 elements
     // the array should have a fixed lenght, hence growable = false
@@ -66,7 +97,4 @@ void main(){
         school[i] = Task1.take_school_name(); // gets the school name
         reaction_time[i] = Task1.take_reaction_time(); // gets the reaction time
     }
-    print("Student age: $student_age");
-    print("School Name: $school");
-    print("Reaction Time: $reaction_time");
 }
