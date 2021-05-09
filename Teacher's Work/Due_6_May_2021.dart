@@ -5,7 +5,9 @@ class Task1 {
      * This class contains the functions which
      * I wrote to complete task 1
      */
-    static int take_age(){
+    static int _MAX_LENGHT = 2;
+
+    static take_age(){
         /**
         * Returns the age of the Student
         * Return Type: int
@@ -22,9 +24,7 @@ class Task1 {
         }
         // invalid age was given
         print("Please enter a valid age!");
-        take_age();
-
-        return 0;
+        return take_age();
     }
 
     static String take_school_name(){
@@ -56,6 +56,25 @@ class Task1 {
         print("\nPlease enter the reaction time: ");
         return double.parse(stdin.readLineSync() as String);
     }
+    
+    static run(){
+        /**
+         * Starts Task 1
+         */
+
+        // Make an empty array contaning 5 elements
+        // the array should have a fixed lenght, hence growable = false
+        var student_age = new List<int>.filled(_MAX_LENGHT, 0, growable: false);
+        var school = new List<String>.filled(_MAX_LENGHT, "", growable: false); // "" -> Empty string
+        var reaction_time = new List<double>.filled(_MAX_LENGHT, 0, growable: false);  
+
+        for (var i = 0; i < student_age.length; i++) {
+            student_age[i] = take_age(); // gets the age
+            school[i] = take_school_name(); // gets the school name
+            reaction_time[i] = take_reaction_time(); // gets the reaction time
+        }
+        return [student_age, school, reaction_time];
+    }
 }
 
 class Task2 {
@@ -63,7 +82,7 @@ class Task2 {
      * This class contains the function which 
      * I wrote to complete task 2
      */
-    static double Average_Reaction(List<double> reaction, List<int> age, int chosen_age){
+    static double Average_Reaction(List<double> reaction, List<int> age){
         /**
          * Finds the average reaction time of a specific age group
          * @param reaction: An Array contaning all the reaction times
@@ -72,6 +91,9 @@ class Task2 {
          *
          * Return Type: Double 
          */
+        print("\nPlease enter an age: ");
+        int chosen_age = int.parse(stdin.readLineSync() as String);
+
         double counter = 0;
         int total = 0;
 
@@ -83,18 +105,23 @@ class Task2 {
         }
         return counter/total;
     }
+    static void run(
+        List <int> age, 
+        List<String> school, 
+        List<double> reaction_times
+    ){
+        /**
+         * Starts Task 2
+         */
+        // find the Average Reaction
+        Average_Reaction(reaction: reaction_times, age: age);
+    }
 }
 
 void main(){
-    // Make an empty array contaning 5 elements
-    // the array should have a fixed lenght, hence growable = false
-    var student_age = new List<int>.filled(5, 0, growable: false);
-    var school = new List<String>.filled(5, "", growable: false); // "" -> Empty string
-    var reaction_time = new List<double>.filled(5, 0, growable: false);  
+    var return_values = Task1.run();
+    List<int> age = return_values[0];
+    List<String> school = return_values[1];
+    List<double> reaction_times = return_values[2];
 
-    for (var i = 0; i < student_age.length; i++) {
-        student_age[i] = Task1.take_age(); // gets the age
-        school[i] = Task1.take_school_name(); // gets the school name
-        reaction_time[i] = Task1.take_reaction_time(); // gets the reaction time
-    }
 }
