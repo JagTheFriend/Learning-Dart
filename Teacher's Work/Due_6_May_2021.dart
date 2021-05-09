@@ -106,7 +106,7 @@ class Task2 {
             }
         }
         double avg = counter/total;
-        print("Average reaction for $chosen_age year olds from $school_name: $avg");
+        print("\nAverage reaction time for $chosen_age year olds from $school_name: $avg");
         return avg;
     }
     static void run(
