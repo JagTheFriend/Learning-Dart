@@ -82,12 +82,11 @@ class Task2 {
      * This class contains the function which 
      * I wrote to complete task 2
      */
-    static double Average_Reaction(List<double> reaction, List<int> age){
+    static double Average_Reaction({required List<double> reaction, required List<int> age}){
         /**
          * Finds the average reaction time of a specific age group
          * @param reaction: An Array contaning all the reaction times
          * @param age: An array contaning the age of the student
-         * @param chosen_age: The age group chosen by the user
          *
          * Return Type: Double 
          */
@@ -124,4 +123,5 @@ void main(){
     List<String> school = return_values[1];
     List<double> reaction_times = return_values[2];
 
+    Task2.run(age, school, reaction_times);   
 }
