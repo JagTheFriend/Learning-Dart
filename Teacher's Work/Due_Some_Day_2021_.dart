@@ -22,8 +22,50 @@
  * must have meaningful names. Each task must be fully tested.
  */
 
+import 'dart:io';
+
 class Task1 {
+  int _MAX_LENGHT = 30;
   
+  List<double> midday(){
+    double temp = double.parse(stdin.readLineSync() as String);
+    bool valid_ = valid(temp);
+    return [];
+  }
+  
+  List<double> midnight() {
+    double temp = double.parse(stdin.readLineSync() as String);
+    bool valid_ = valid(temp);
+    return [];
+  }
+
+  runner() {
+    var midday_temp = new List<int>.filled(_MAX_LENGHT, 0, growable: false);
+    var midnight_temp = new List<int>.filled(_MAX_LENGHT, 0, growable: false);
+
+    // ask for  midday temperatures
+    midday();
+    // ask for  midnight temperatures
+    midnight();
+
+  }
+
+  bool valid(double temp, {bool midday: true}) {
+    // midday
+    if (midday){
+      if (temp <= 35 && temp >= 18){
+        return true;
+      }
+      return false;
+    }
+    // midnight
+    else {
+      if (temp <= 20 && temp >= 10){
+        return true;
+      }
+      return false;
+    }
+  }
 }
 
 void main(List<String> args) {
