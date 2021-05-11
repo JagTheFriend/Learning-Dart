@@ -22,6 +22,10 @@
  * must have meaningful names. Each task must be fully tested.
  */
 
+class Task1 {
+  
+}
+
 void main(List<String> args) {
   
 }
