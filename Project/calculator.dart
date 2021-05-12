@@ -1,8 +1,9 @@
 import 'dart:io';
 
 double return_result(double number_1, double number_2, String operator_1){
+  /**Performs the calculation and returns the result*/
   switch (operator_1) {
-    case "+": 
+    case "+":
       return number_1 + number_2;
     
     case "*": 
@@ -20,6 +21,12 @@ double return_result(double number_1, double number_2, String operator_1){
 }
 
 void get_output(double number_1, double number_2, String operator_1){
+  /**This it the core function
+   * It handles the flow return values of the different functions
+   * such as checking whether the given operator (operator_1) is valid 
+   * by makking function calls, and checking what the function returned
+   * And showing the ouput on the console(or the screen/terminal)
+   */
   String operator_ = get_operator(operator_1);
   
   if (operator_ != "Invalid"){
@@ -30,7 +37,7 @@ void get_output(double number_1, double number_2, String operator_1){
   
 String get_operator(String operator_1) {
   /**
-   * Finds whhch operator was used
+   * Finds which operator was used
    * Returns a String
    */
   List<String> f = ["+", "-", "*", "/"];
@@ -43,20 +50,17 @@ String get_operator(String operator_1) {
   return "Invalid";
 }
 
-run() {
-  // get numbers:
-  print("Enter a number: ")
-  double number_1 = double.parse(stdin.readLineSync() as  String); 
-  
-  print("Enter another number:");
-  double number_2 = double.parse(stdin.readLineSync() as  String); 
-
-  print("Enter the operator:");
-  String operator_1 = stdin.readLineSync() as  String;
-
-  print("Output: $get_output(number_1, number_2, operator_1)"); 
-}
-
 void main() {
-  run();
+  while(true){
+    // get numbers:
+    print("Enter a number: ");
+    double number_1 = double.parse(stdin.readLineSync() as  String); 
+    
+    print("Enter another number:");
+    double number_2 = double.parse(stdin.readLineSync() as  String); 
+
+    print("Enter the operator:");
+    String operator_1 = stdin.readLineSync() as  String;
+    get_output(number_1, number_2, operator_1);
+  }
 }
