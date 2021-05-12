@@ -30,9 +30,12 @@ void get_output(double number_1, double number_2, String operator_1) {
   String operator_ = get_operator(operator_1);
 
   if (operator_ != "Invalid") {
-    print("Output: $return_result(number_1, number_2, operator_1)");
+    double output = return_result(number_1, number_2, operator_1);
+    print("Output: $output\n");
   }
-  print("Ivalid operator!!\n");
+  else{
+    print("Invalid operator!!\n");
+  }
 }
 
 String get_operator(String operator_1) {
